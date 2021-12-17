@@ -2,7 +2,7 @@
 
 working poc for LedgerScore crypto score calculation
 
-using gunicorn as Python 3.x wsgi http & NGINX 
+using combination of Flask, gunicorn as Python 3.x wsgi http, NGINX web server 
 
 run:
 gunicorn --bind 0.0.0.0:5000 wsgi:app
