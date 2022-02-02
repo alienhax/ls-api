@@ -64,7 +64,7 @@ def get_wallet_info_by_dr():
 	lst_wadd = dct_json_data['wallets'] if 'wallets' in dct_json_data.keys() is not None else []
 	dat_b = dct_json_data['start'] if 'start' in dct_json_data.keys() is not None else None
 	dat_e = dct_json_data['end'] if 'start' in dct_json_data.keys() is not None else None
-
+	
 	if dat_b is not None and dat_e is not None:
 		for str_wadd in lst_wadd:
 			obj_wadd = ls_helper.get_wallet_objs(str_wadd,dat_b,dat_e)
@@ -86,6 +86,10 @@ def get_wallet_details():
 			lst_wadd = ls_helper.get_wallet_det_objs(str_wadd,dat_b,dat_e)
 			if len(lst_wadd) > 0:
 				lst_ret += lst_wadd
+
+		L = lst_ret
+		L = list({(v['address'], v['change'], v['dateTime'], v['reason'], v['score'], v['status'], v['value']):v for v in L}.values()) 
+		lst_ret = L
 
 	return jsonify(lst_ret)
 

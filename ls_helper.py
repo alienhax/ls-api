@@ -11,7 +11,8 @@ import sys
 import time
 import uuid
 
-str_api_key = 'ETHERSCAN_API_KEY_HERE'
+#NOTE: YOU WILL NEED TO ADD YOUR OWN ETHERSCAN API KEY FOR str_api_key below
+str_api_key = 'ETHERSCAN_API_KEY_HERE' 
 str_LED_add = '0x72de803b67b6ab05b61efab2efdcd414d16ebf6d'
 
 int_min_score = 100
@@ -532,7 +533,7 @@ def get_wallet_obj(str_wadd):
 			obj_response_2 = requests.get(str_url,headers=obj_headers)
 			if obj_response_2.status_code == 200:
 				obj_json_2 = obj_response_2.json()
-				dbl_eth_bal = move_point(float(obj_json_2['result']),0)
+				dbl_eth_bal = move_point(float(obj_json_2['result']),-18)
 
 			del obj_response_2
 
